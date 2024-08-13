@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import api from "../api";
 import { useListStore } from "../stores/listStore";
 import { useCartStore } from "../stores/cartStore";
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 
 const ItemList = () => {
   const { list, setList } = useListStore();
@@ -26,6 +27,7 @@ const ItemList = () => {
               marginTop: "auto",
             }}
           >
+            <HourglassEmptyIcon/>
             Cargando Items...
           </p>
         ) : (
