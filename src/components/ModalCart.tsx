@@ -19,7 +19,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export function ModalCart() {
+export default function ModalCart() {
   const [open, setOpen] = React.useState<boolean>(false);
   const {cartItems, clearCart} = useCartStore();
 

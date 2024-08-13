@@ -1,6 +1,6 @@
 import "./App.css";
 import ItemList from "./components/ItemList";
-import { ModalCart } from "./components/ModalCart";
+import ModalCart from "./components/ModalCart";
 
 function App() {
   return (
