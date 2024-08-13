@@ -5,14 +5,11 @@ import ModalCart from "./components/ModalCart";
 
 function App() {
   return (
-    <main>
-      <div>
-        <Toaster position="top-center" reverseOrder={false} />
-      </div>
-      <div>
-        <ModalCart />
-        <ItemList />
-      </div>
+    <main className="container">
+      <Toaster position="top-center" reverseOrder={false} />
+
+      <ModalCart />
+      <ItemList />
     </main>
   );
 }
