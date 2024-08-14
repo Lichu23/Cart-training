@@ -35,7 +35,7 @@ export default function ModalCart() {
   return (
     <React.Fragment>
       <Button variant="outlined" onClick={handleClickOpen}>
-        <ShoppingCart />
+        <ShoppingCart />{cartItems.length}
       </Button>
       <Dialog
         open={open}
@@ -54,8 +54,9 @@ export default function ModalCart() {
                 {cartItems.map((item) => (
                   <li key={item.id}>
                     <div style={{ display: "flex", alignItems: "center" }}>
-                      {item.title} - ${item.price} x{item?.quantity}
+                      {item.title} - ${item.price}
                       <Button onClick={() => addItem(item)}>+</Button>
+                      {item?.quantity}
                       {item.quantity >= 1 ? (
                         <Button onClick={() => decreaseItemQuantity(item.id)}>
                           -

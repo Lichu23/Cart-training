@@ -31,6 +31,7 @@ export const useCartStore = create<CartState>()(
             };
           }
         });
+        toast.success("Se agregó correctamente"); 
       },
       decreaseItemQuantity: (productId: number) => {
         set((state) => ({
