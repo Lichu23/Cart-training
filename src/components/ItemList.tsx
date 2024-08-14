@@ -1,23 +1,24 @@
 import { AddShoppingCart } from "@mui/icons-material/";
+import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import { IconButton } from "@mui/material";
 import { useEffect } from "react";
 import api from "../api";
-import { useListStore } from "../stores/listStore";
 import { useCartStore } from "../stores/cartStore";
-import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+import { useListStore } from "../stores/listStore";
+import Input from "./Input";
 
 const ItemList = () => {
-  const { list, setList } = useListStore();
+  const { list, setList, search } = useListStore();
 
-  const {addItem} = useCartStore();
-
+  const { addItem } = useCartStore();
 
   useEffect(() => {
-    api.getProducts().then(setList);
-  }, []);
+    api.search(search).then(setList);
+  }, [search]);
 
   return (
     <main className="mainListItem">
+      <Input/>
       <ul>
         {list.length === 0 ? (
           <p
@@ -27,7 +28,7 @@ const ItemList = () => {
               marginTop: "auto",
             }}
           >
-            <HourglassEmptyIcon/>
+            <HourglassEmptyIcon />
             Cargando Items...
           </p>
         ) : (

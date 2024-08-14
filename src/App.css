@@ -4,12 +4,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: "column";
-  gap: "24px";
+  flex-direction: column;
+  gap: 24px;
 }
 
-.container {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.search {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchInput {
+  font-size: medium;
+  border: 1px solid gray;
 }

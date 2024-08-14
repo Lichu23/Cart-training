@@ -21,7 +21,8 @@ const Transition = React.forwardRef(function Transition(
 
 export default function ModalCart() {
   const [open, setOpen] = React.useState<boolean>(false);
-  const {cartItems, clearCart} = useCartStore();
+  const { cartItems, clearCart, addItem, removeItem, decreaseItemQuantity } =
+    useCartStore();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -52,7 +53,19 @@ export default function ModalCart() {
               <ul>
                 {cartItems.map((item) => (
                   <li key={item.id}>
-                    {item.title} - ${item.price}
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      {item.title} - ${item.price} x{item?.quantity}
+                      <Button onClick={() => addItem(item)}>+</Button>
+                      {item.quantity >= 1 ? (
+                        <Button onClick={() => decreaseItemQuantity(item.id)}>
+                          -
+                        </Button>
+                      ) : (
+                        <Button onClick={() => removeItem(item.id)}>
+                          clear
+                        </Button>
+                      )}
+                    </div>
                   </li>
                 ))}
               </ul>
